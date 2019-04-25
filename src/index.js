@@ -29,9 +29,12 @@ class CatRandom extends LitElement {
     this._image = null;
   }
 
-  async firstUpdated(changedProperties) {
-    let cat = await getRandomCat();
-    this.image = cat[0].url;
+  firstUpdated(changedProperties) {
+    setInterval(async () => {
+      let cat = await getRandomCat();
+      this.image = cat[0].url;
+    }, 5000);
+
     // return true;
   }
 
